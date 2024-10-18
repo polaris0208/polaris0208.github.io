@@ -3,105 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>블로그 레이아웃</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-        }
-
-        .header, .footer {
-            height: 5%;
-            background-color: rgba(51, 51, 51, 0.8);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: fixed;
-            left: 0;
-            right: 0;
-            z-index: 1;
-        }
-
-        .header {
-            top: 0;
-        }
-
-        .footer {
-            bottom: 0;
-        }
-
-        .main {
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            margin-top: 5%;
-            margin-bottom: 5%;
-            overflow: auto;
-        }
-
-        .section1, .section2 {
-            flex: 1;
-            padding: 10px;
-            background-color: rgba(244, 244, 244, 0.5);
-        }
-
-        .two-column {
-            display: flex;
-            flex-grow: 1;
-        }
-
-        .section3, .section4 {
-            flex: 1;
-            padding: 10px;
-            background-color: rgba(228, 228, 228, 0.5);
-        }
-
-        @media (max-width: 600px) {
-            .section1, .section2, .section3, .section4 {
-                font-size: 14px;
-            }
-        }
-    </style>
+    <title>My Blog</title>
 </head>
 <body>
-
-    <div class="header">상단바</div>
-    <div class="main">
-        <div class="section1">프로필</div>
-        <div class="section2" id="recent-posts">최근 게시물</div>
-        <div class="two-column">
-            <div class="section3">인덱스</div>
-            <div class="section4">목록</div>
-        </div>
-    </div>
-    <div class="footer">하단바</div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.6/marked.min.js"></script>
-    <script>
-        async function loadMarkdown(file) {
-            const response = await fetch(file);
-            return await response.text();
-        }
-
-        async function displayRecentPosts() {
-            const recentPostsContainer = document.getElementById('recent-posts');
-            const postFiles = [posts/test.md];
-
-            for (const file of postFiles) {
-                const markdown = await loadMarkdown(file);
-                const htmlContent = marked(markdown);
-                const postElement = document.createElement('div');
-                postElement.innerHTML = htmlContent;
-                recentPostsContainer.appendChild(postElement);
-            }
-        }
-
-        displayRecentPosts();
-    </script>
-
+    <h1>내 블로그에 오신 것을 환영합니다!</h1>
+    <ul>
+        <li><a href="_posts/test.md">첫 번째 포스트</a></li>
+    </ul>
 </body>
 </html>
