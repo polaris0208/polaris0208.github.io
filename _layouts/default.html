@@ -1,36 +1,25 @@
-<!DOCTYPE html>
-<html lang="{{ site.lang | default: 'en-US' }}">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
-  <meta name="description" content="{{ page.description | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
-  <link rel="canonical" href="{{ page.url | replace:'index.html', '' | absolute_url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }} Feed"
-    href="{{ '/feed.xml' | absolute_url }}">
-  {% if site.favicon and site.favicon != "" %}
-  <link rel="shortcut icon" href="{{ site.favicon | relative_url }}" type="image/png" />
+---
+layout: base
+---
+
+<div class="intro-header"></div>
+
+<main class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %}">
+  {% if page.before-content %}
+    <div class="before-content">
+      {% for file in page.before-content %}
+        {% include {{ file }} %}
+      {% endfor %}
+    </div>
   {% endif %}
-  <!-- Styles -->
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%7CNoto+Serif:400,400i,700,700i&display=swap" rel="stylesheet">
-  <link href="{{ '/assets/css/style.css' | relative_url }}" rel="stylesheet">
-</head>
-<body>
 
-  <div id="page" class="site">
-    <div class="inner">
-      {% include header.html %}
-      {{content}}
-      {% include footer.html %}
-    </div><!-- .inner -->
-  </div><!-- .site -->
+  {{ content }}
 
-  <!-- Scripts -->
-  {% if site.google_analytics %}
-    {% include google_analytics.html %}
+  {% if page.after-content %}
+    <div class="after-content">
+      {% for file in page.after-content %}
+        {% include {{ file }} %}
+      {% endfor %}
+    </div>
   {% endif %}
-  <script src="{{ '/assets/js/plugins.js' | relative_url }}"></script>
-  <script src="{{ '/assets/js/custom.js' | relative_url }}"></script>
-
-</body>
-</html>
+</main>
