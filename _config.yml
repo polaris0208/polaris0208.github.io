@@ -18,7 +18,7 @@ description: "Scriptor is a minimal, clean, modern & responsive Jekyll theme for
 baseurl: ""
 
 # The base hostname & protocol of your site for where absolute urls are needed.
-url: "https://polaris0208.github.io"
+url: "https://polaris0208.github.io/"
 
 # Favicon
 favicon: images/favicon.png
