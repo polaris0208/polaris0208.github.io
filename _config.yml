@@ -21,9 +21,7 @@ author: Polaris0208
 
 navbar-links:
   About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
+  Tags: "tags"
   Author's home: "https://github.com/polaris0208"
 
 ################
