@@ -57,6 +57,7 @@ IU - Bye Summer
 
 ## Iterator
 * 반복 가능한 객체를 하나씩 꺼냄
+
 ```python
 numbers = [1,2,3,4,5] #리스트
 iterator = iter(numbers) 
@@ -64,9 +65,10 @@ next(iterator) #next() 메서드로 호출
 # 1
 next(iterator)
 # 2
-
 ```
+
 * class 적용 예
+
 ```python
 class myiterator:
   def __init__(self, data):
@@ -110,7 +112,9 @@ gen = generate_5()
 next(gen)
 # 1
 ```
+
 * 피보나치 수열 만들기
+
 ```python
 def fibonacci(n):
   a, b = 0, 1
