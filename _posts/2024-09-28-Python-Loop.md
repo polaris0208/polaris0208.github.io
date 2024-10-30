@@ -17,6 +17,7 @@ author: polaris0208
 
 ### while
 * 조건이 False가 되기 전까지 반복
+
 ```py
 from random import randint
 
@@ -52,14 +53,16 @@ days_of_week.reverse()
 print(days_of_week)
 
 #['Fri', 'Thur', 'Wed', 'Tue', 'Mon']
-
 ```
+
 * 위치를 0 부터 인식하기 때문에 4번째 값을 호출하기 위해서는 3을 입력
+
 ```
 print(days_of_week[3])
 
 # Tue
 ```
+
 #### tuples () 사용
 * list와 다르게 불변성을 가짐
 
@@ -115,5 +118,4 @@ for website in websites:
 print(results)
 
 # {'https://google.com': 'OK', 'https://airbnb.com': 'OK', 'https://x.com': 'OK', 'https://facebook.com': 'OK', 'https://tiktok.com': 'OK'}
-
 ```

@@ -44,7 +44,6 @@ from
 from lol_feedbacks
 group by feedback_date) a
 )
-
 ```
 
 ### 연산된 값을 활용하여 연산할 경우 subquery를 활용

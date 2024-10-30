@@ -72,6 +72,7 @@ def tax_calculateor(salary):
 
 tax_calculateor(100)
 ```
+
 * paramete에 기본값 설정
 
 ```py
@@ -132,6 +133,7 @@ if password_correct:
 else : 
   print("Worng password")
 ```
+
 * if, else, elif
 * if 조건 : 결과
 * else: 대안
@@ -169,6 +171,7 @@ else:
 ```py
 from random import randint, uniform
 ```
+
 * random 모듈에서 randint, uniform 함수 불러오기
 
 ```py
@@ -184,4 +187,5 @@ elif user_choice > pc_choice:
 elif user_choice < pc_choice:
   print("Higher!", pc_choice)
 ```
+
 * randint 적용하여 무작위 정수값 출력
