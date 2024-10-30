@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Python 기초
-subtitle: 기본적인 기능 & 조건문
+subtitle: TIL Day 5
 cover-img: "/assets/img/background.png"
 thumbnail-img: ''
 share-img: ''

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: SQL 기초 기능-2
-subtitle: 기본적인 기능 활용
+subtitle: TIL Day 4
 cover-img: "/assets/img/background.png"
 thumbnail-img: ''
 share-img: ''
