@@ -26,12 +26,14 @@ author: polaris0208
 
 ## API 개념
 >**Application Programming Interface** 
+
 - 프로그램 끼리 통신하는 방식
 - AI 서비스가 제공하는 프로그램과 자신의 프로그램을 연결하는 개념
 - **ChatGPT, ElevenLabs** 등
 
 ## 사전학습 모델
 > **Pre Trained Model**
+
 - 많은 학습 데이터로 사전 학습된 모델
 - 다양한 모델과 결합 가능
 - 검증이 끝난 모델로 안정성이 높음
