@@ -153,7 +153,8 @@ Name: Name, Length: 891, dtype: object
 print(df2[['Name', 'Ticket']])
 ``` 
 
-```                                                       Name  \
+```                                                       
+                                                            Name  \
 Ticket                                                                
 A/5 21171                                   Braund, Mr. Owen Harris   
 PC 17599          Cumings, Mrs. John Bradley (Florence Briggs Th...   
