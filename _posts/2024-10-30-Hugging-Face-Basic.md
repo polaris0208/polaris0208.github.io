@@ -69,4 +69,72 @@ author: polaris0208
 - 복잡한 초기 설정
 - 특화된 모델 : **NLP**
 
+## 실습
+
+### 패키지 설치
+
+#### Tip
+- 주피터 노트북에서 ! 입력 후 코드 작성하면 시스템 명령어 사용 가능
+- 터미널에서 파이썬 사용 시 python이 아닌 python3 입력
+
+#### 가상환경 활성화
+
+```bash
+python3 -m venv AI # 생성
+source AI/bin/activate
+```
+#### 필요 패키지 설치
+
+```py
+pip install --upgrade pip
+pip install ipykernel
+pip install transformers
+pip install torch torchvision
+```
+
+#### ipykernel 설정
+
+```bash
+python -m ipykernel install --user --name AI --display-name AI
+```
+
+#### 경고 문구 설정
+- 활성화 `action='default'`
+- 비활성화 `action='ignore'`
+
+```py
+import warnings
+warnings.filterwarnings(action ='ignore')
+```
+
+#### 모델 불러오기, 설정
+
+```py
+from transformers import GPT2Tokenizer, GPT2LMHeadModel
+tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+model = GPT2LMHeadModel.from_pretrained('gpt2')
+```
+
+#### 모델 적용
+
+```py
+# 데이터 입력
+text = "My name is"
+encoded_input = tokenizer(text, return_tensors='pt') # 모델이 학습하기 위한 텐서 데이터로 변환
+encoded_input
+#
+{'input_ids': tensor([[3666, 1438,  318]]), 'attention_mask': tensor([[1, 1, 1]])}
+
+# 결과 출력
+output = model.generate(encoded_input['input_ids'], max_length = 50)
+generated_text = tokenizer.decode(output[0], skip_special_tokens= True) # 사람이 이해하기 위한 형태로 변환
+generated_text
+#
+"My name is John. I'm a man of God. I'm a man of God. I'm a man of God. I'm a man of God. I'm a man of God. I'm a man of God. I'm a"
+```
+
+### 결론
+> 간단학게 모델을 구현하고 활용가능<br>
+> 사용법과 발생 가능한 문제점을 미리 파악하여야 함
+
 [¶ Top](#ai-활용-개념과-hugging-face)
