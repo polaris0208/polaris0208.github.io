@@ -44,7 +44,7 @@ generator = pipeline("text-generation", model="gpt2")
 result = generator("The Invisible Dragon barked", max_length=50, num_return_sequences=1)
 print(result)
 ```
-
+<br>
 >'generated_text': 'The Invisible Dragon barked at me like a monkey trying to hide something! He was an adult, so I did my best. I was so afraid to bite him. This had me wondering if he would let me try his new toy.
 
 ### 감성어 분석
@@ -188,8 +188,6 @@ print(f"Cosine similarity between the two sentences: {similarity:.4f}")
 
 [¶ Top](#hugging-face-transformers)
 
----
-
 # Pre-traing/Fine-tuning
 
 ## Pre-training
@@ -271,6 +269,7 @@ test_dataset = test_dataset.map(tokenize_function, batched = True)
 
 test_dataset.set_format(type='torch', columns=['input_ids', 'attention_mask', 'label'])
 ```
+<br>
 
 - 모델 정의 - 평가
 
@@ -339,6 +338,7 @@ model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_l
 ```py
 from transformers import Trainer, TrainingArguments
 ```
+<br>
 
 - `TrainingArguments` : 파라미터
   - `output_dir` : 모델 파일, 로그 저장할 위치 
