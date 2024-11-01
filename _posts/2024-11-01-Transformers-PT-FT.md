@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hugging Face Transformers & Pre-traing/Fine-tuning
+title: Hugging Face Transformers
 subtitle: TIL Day 40
 cover-img: "/assets/img/background.png"
 thumbnail-img: ''
