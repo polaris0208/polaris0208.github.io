@@ -188,6 +188,8 @@ print(f"Cosine similarity between the two sentences: {similarity:.4f}")
 
 [¶ Top](#hugging-face-transformers)
 
+---
+
 # Pre-traing/Fine-tuning
 
 ## Pre-training
@@ -225,24 +227,39 @@ print(f"Cosine similarity between the two sentences: {similarity:.4f}")
 
 ### IMDb 데이터셋 예시 - BERT 모델
 
-#### Fine-tuning 전
+#### Fine-tuning 적용하지 않은 예시
 - 평가 데이터만 사용
+- 필요 패키지 설치
+
+```bash
+pip install transformers datasets torch
+pip install --upgrade transformers accelerate
+```
+
+- 패키지 `import`
 
 ```py
 from transformers import BertTokenizer, BertForSequenceClassification
-# pip install transformers datasets torch
-# pip install accelerate -U
 from datasets import load_dataset
 import torch
 import numpy as np
 from sklearn.metrics import accuracy_score
+```
 
+- 데이터셋 설정
+
+```py
 dataset = load_dataset('imdb') 
 # 영화리뷰 감성 분석용 데이터셋(훈련/학습 데이터로 분할되어 있음)
 # 훈련용 데이터에는 레이블 포함
 
 test_dataset = dataset['test'].shuffle(seed=42).select(range(500))
+```
 
+- 토큰화 및 포맷 설정
+- `batched` : 베치 단위로 함수 적용
+
+```py
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased') 
 # 영어 특화, 대소문자 구분하지 않음, 문장 토큰 512 제한
 
@@ -251,10 +268,14 @@ def tokenize_function(examples):
 # 패딩은 최대 길이, 최대길이를 초과하면 잘라냄
 
 test_dataset = test_dataset.map(tokenize_function, batched = True) 
-# batched 베치 단위로 함수를 적용
 
 test_dataset.set_format(type='torch', columns=['input_ids', 'attention_mask', 'label'])
+```
 
+- 모델 정의 - 평가
+
+```py
+# 모델 정의
 model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels =2)
 
 # 예측 및 평가
@@ -276,17 +297,12 @@ accuracy = accuracy_score(all_labels, all_preds)
 print(f'Accuracy without fine-tuning: {accuracy:.4f}')
 ```
 
-#### Fine-tuning 후
-- `output_dir` : 모델 파일, 로그 저장할 위치 
-- `num_train_epochs` : 에포크 수
-- `per_device_train_batch_size` : 베치 사이즈
-- `per_device_eval_batch_size`
-- `evaluation_strategy` : 평가 전략
-- `save_steps` : 해당 스탭마다 모델 저장
-- `save_total_limit` : 저장할 최대 체크 포인트
+#### Fine-tuning 적용 예시
+- 학습용 데이터셋 추가 : 평가용 보다 많은 비율 할당
+- 이외에는 동일하게 적용
 
 ```py
-from transformers import BertTokenizer, BertForSequenceClassification, Trainer, TrainingArguments
+from transformers import BertTokenizer, BertForSequenceClassification
 # pip install transformers datasets torch
 # pip install --upgrade transformers accelerate
 
@@ -315,8 +331,25 @@ test_dataset.set_format(type='torch', columns=['input_ids', 'attention_mask', 'l
 model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels =2)
 
 # BERT 모델 로드
+```
 
-# transformer 라이브러리에서 제공하는 클래스 - 모델훈련시 필요한 설정들을 관리
+- `Trainer`, `TrainingArguments` 적용
+  - **Transformers** 라이브러리에서 제공하는 클래스 - 모델훈련시 필요한 설정들을 관리
+
+```py
+from transformers import Trainer, TrainingArguments
+```
+
+- `TrainingArguments` : 파라미터
+  - `output_dir` : 모델 파일, 로그 저장할 위치 
+  - `num_train_epochs` : 에포크 수
+  - `per_device_train_batch_size` : 베치 사이즈
+  - `per_device_eval_batch_size`
+  - `evaluation_strategy` : 평가 전략
+  - `save_steps` : 해당 스탭마다 모델 저장
+  - `save_total_limit` : 저장할 최대 체크 포인트
+
+```py
 # 훈련 인자 설정
 training_args = TrainingArguments(
     output_dir='./results', # 모델 파일, 로그 저장할 위치 
@@ -339,7 +372,11 @@ trainer = Trainer(
 # 모델 훈련
 trainer.train()
 trainer.evaluate()
+```
 
+- 결과 확인
+
+```py
 import numpy as np
 from sklearn.metrics import accuracy_score
 
