@@ -44,7 +44,9 @@ generator = pipeline("text-generation", model="gpt2")
 result = generator("The Invisible Dragon barked", max_length=50, num_return_sequences=1)
 print(result)
 ```
-<br>
+
+- 결과
+
 >'generated_text': 'The Invisible Dragon barked at me like a monkey trying to hide something! He was an adult, so I did my best. I was so afraid to bite him. This had me wondering if he would let me try his new toy.
 
 ### 감성어 분석
@@ -330,7 +332,6 @@ model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_l
 
 # BERT 모델 로드
 ```
-<br>
 
 - `Trainer`, `TrainingArguments` 적용
   - **Transformers** 라이브러리에서 제공하는 클래스 - 모델훈련시 필요한 설정들을 관리
