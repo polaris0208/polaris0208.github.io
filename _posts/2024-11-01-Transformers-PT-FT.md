@@ -9,7 +9,7 @@ tags: [TIL, Tools]
 author: polaris0208
 ---
 
-# Hugging Face Transformers & Pre-traing/Fine-tuning
+# Hugging Face Transformers
 > **Transformers** **NLP** 모델 제공, 오픈소스 라이브러리<br>
 > **`BERT`, `GPT-2`, `DistilBERT`** 등<br>
 [¶ Transformers](#transformers)<br>
@@ -186,7 +186,7 @@ print(f"Cosine similarity between the two sentences: {similarity:.4f}")
 # Cosine similarity between the two sentences: 0.7213
 ```
 
-[¶ Top](#hugging-face-transformers--pre-traingfine-tuning)
+[¶ Top](#hugging-face-transformers)
 
 # Pre-traing/Fine-tuning
 
@@ -358,4 +358,4 @@ eval_result = trainer.evaluate()
 print(f"Accuracy: {eval_result['eval_accuracy']:.4f}")
 ```
 
-[¶ Top](#hugging-face-transformers--pre-traingfine-tuning)
+[¶ Top](#hugging-face-transformers)
