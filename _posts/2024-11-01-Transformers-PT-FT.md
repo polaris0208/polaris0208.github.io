@@ -269,7 +269,6 @@ test_dataset = test_dataset.map(tokenize_function, batched = True)
 
 test_dataset.set_format(type='torch', columns=['input_ids', 'attention_mask', 'label'])
 ```
-<br>
 
 - 모델 정의 - 평가
 
@@ -331,6 +330,7 @@ model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_l
 
 # BERT 모델 로드
 ```
+<br>
 
 - `Trainer`, `TrainingArguments` 적용
   - **Transformers** 라이브러리에서 제공하는 클래스 - 모델훈련시 필요한 설정들을 관리
@@ -338,7 +338,6 @@ model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_l
 ```py
 from transformers import Trainer, TrainingArguments
 ```
-<br>
 
 - `TrainingArguments` : 파라미터
   - `output_dir` : 모델 파일, 로그 저장할 위치 
