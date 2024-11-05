@@ -168,18 +168,6 @@ def save_to_file(file_name, jobs):
 </body>
 ```
 
-<body>
-  <main class="container">
-    <h1>Job Scrapper</h1>
-    <h4>What job do you want</h4>
-    <form action="/search"> 
-      <input type= "text" name="keyword" placeholder="Write keyword" />
-      <button>Search</button>
-    </form>
-  </main>
-</body>
-
-
 ### db 설정 & 검색 결과 기능 작성
 * 검색 결과를 저장할 db설정(같은 내용 호출 시 빠르게 반응)
 
@@ -257,35 +245,6 @@ def search():
    </table></figure>   
   </main>
 ```
-
-<body>
-  <main class="container">
-   <hgroup>
-      <h1>Search Results for "{{keyword}}"</h1>
-      <a target='_blank' href="/export?keyword={{keyword}}">Export to file</a>
-   </hgroup>
-   <figure><table>
-    <thead data-theme="dark">
-      <tr>
-        <th>Position</th>
-        <th>Company</th>
-        <th>Location</th>
-        <th>Link</th>
-      </tr>
-    </thead>
-    <tbody>
-    {% for job in jobs %}
-      <tr>
-        <td>{{job.position}}</td>
-        <td>{{job.company}}</td>
-        <td>{{job.location}}</td>
-        <td><a href = "{{job.link}}" target="_blank">Apply now &rarr;</a></td>
-      </tr>
-    {% endfor %}
-    </tbody>
-   </table></figure>   
-  </main>
-</body>
 
 ### csv 파일 추출
 * 파일을 추출하려면 탐색과정을 거쳐야 함
