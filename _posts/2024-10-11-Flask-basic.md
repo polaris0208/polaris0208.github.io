@@ -21,7 +21,7 @@ html 요소 추가
 ## Flask 
 ### flask 설치
 
-``` bash
+```bash
 source myenv/bin/activate
 pip install flask
 ```
