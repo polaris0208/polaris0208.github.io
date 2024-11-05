@@ -170,8 +170,6 @@ def search():
     web3 = w3_scrap(keyword)
   # 이전에 제작한 스크래퍼를 모듈로 가져옴
     jobs = berlin + wwr + web3
-  # {%_______%} 안에 코드를 넣어서 html 에 넣을 수 있음
-  # {% end %}로 종료
     db[keyword] = jobs
   return render_template('search.html', keyword = keyword, jobs = jobs)
   # keyword를 html로 보냄
