@@ -10,7 +10,7 @@ author: polaris0208
 ---
 
 ## 딥러닝의 개념
-** 인공신경망(Artificial Neural Networks) 기반 머신러닝 **
+**인공신경망(Artificial Neural Networks) 기반 머신러닝**
 * 다층 신경망 사용 - 자동으로 학습, 복잡한 문제 해결
 * 중요한 패턴 추출, 예측,분류, 생성 등 다양한 작업 수행
 > 중요한 패턴 : 작업 수행에 큰 영향을 주는 요소 - 가장 잘 동작하는 특징
@@ -109,7 +109,6 @@ author: polaris0208
 - 수학적 원리
   - 연쇄법칙(Chaine Rule) 여러개의 레이어의 기울기 계산하는 법칙
   - 각 층의 기울기는 이전 층의 기울기와 현재 층의 기울기를 곱하여 계산
--------
 
 ## 인공 신경망의 기본 구조와 동작원리
 ### ANN(Artificial Neural Networks) 구성요소
@@ -143,7 +142,7 @@ author: polaris0208
 
 
 ### MNIST 예제
-1. 모듈 `import`
+- 모듈 `import`
 
 ```py
 import torch # 핵심 라이브러리
@@ -153,11 +152,11 @@ import torchvision # 이미지 처리
 import torchvision.transforms as transforms # 이미지 처리 전처리
 ```
 
-2. 데이터셋 전처리
-* train = True : 학습용 데이터
-* transform = 생성한 전처리 설정(transform)
-* batch_size : 쪼갠 데이터의 크기
-* suffle : 쪼갠 데이터 섞기 ; 그대로 사용하면 순서의 상관이 작용 할 가능성이 있음
+- 데이터셋 전처리
+  * train = True : 학습용 데이터
+  * transform = 생성한 전처리 설정(transform)
+  * batch_size : 쪼갠 데이터의 크기
+  * suffle : 쪼갠 데이터 섞기 ; 그대로 사용하면 순서의 상관이 작용 할 가능성이 있음
 
 ```py
 # 데이터셋 전처리
@@ -177,7 +176,7 @@ testset = torchvision.datasets.MNIST(root='./data', train=False, download=True, 
 testloader = torch.utils.data.DataLoader(testset, batch_size=64, shuffle=False)
 ```
 
-3. 상속으로 SimpleANN 클래스 기능 가져오기
+- 상속으로 SimpleANN 클래스 기능 가져오기
 
 ```py
 class SimpleANN(nn.Module): # 상속으로 기능 가져오기
@@ -204,7 +203,7 @@ class SimpleANN(nn.Module): # 상속으로 기능 가져오기
         return x # 결과는 (64개 데이터 * 10차원)
 ```
 
-4. 모델 초기화
+- 모델 초기화
 
 ```py
 # 모델 초기화
@@ -230,8 +229,8 @@ optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
 # 최적화, lr- 학습률(적당히 작은값), momentum - 치후 설명
 ```
 
-5. 모델 학습
-* epoch : 한번의 학습 싸이클 ; 적절하게 설정 필요
+- 모델 학습
+  * epoch : 한번의 학습 싸이클 ; 적절하게 설정 필요
 
 ```py
 # 모델 학습
@@ -261,7 +260,7 @@ for epoch in range(10):  # 10 에포크 동안 학습
 print('Finished Training')
 ```
 
-6. 모델 평가
+- 모델 평가
 
 ```py
 correct = 0
