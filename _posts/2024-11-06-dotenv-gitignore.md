@@ -1,6 +1,6 @@
 ---
 layout: post
-title: .env & gitignore 
+title: .env & .gitignore 
 subtitle: TIL Day 45
 cover-img: "/assets/img/background.png"
 thumbnail-img: ''
@@ -18,7 +18,10 @@ author: polaris0208
 > 프로세스가 컴퓨터에서 동작하는 방식에 영향을 미치는, 동적인 값들의 모임
 **API** 키와 같은 민감한 정보를 환경변수에 포함시켜 코드에 직접 작성하지 않고 사용 가능
 
-# dotenv
+# `.env`
+- 프로젝트에 필요한 환경변수를 모아 작성한 파일
+
+## dotenv
 - 환경변수를 `.env` 에 작성하여 **Python** 내부에서 사용할 수 있게 해주는 라이브러리
 
 ## 설치
@@ -27,10 +30,10 @@ author: polaris0208
 ## `.env` 파일 작성
 - `.env` 을 이름으로 파일 생성
 - 환경변수 정의
-  - 변수명 = 변수값 구조
+  - `변수명` = `변수값` 구조
   - 띄어쓰기 없이 작성
-  - 변수명은 대문자로 작성
-  - 따옴표와 작성과 관련없이 string 값으로 호출
+  - 변수명은 대문자로 작성함이 관례
+  - 따옴표와 작성과 상관없이 `str` 값으로 호출
 
 ```py
 TEST_KEY = test_key
@@ -44,7 +47,7 @@ TEST_VALUE_3 = 55
 - `from dotenv import load_dotenv` : `.env` 파일 호출 모듈
 - `import os` : 환경 변수호출 모듈 
 - `load_dotenv()` : `.env` 파일 호출
-- 변수명으로 선언하여 환경변수 호출
+- `os.getenv()` 에 변수명을 입력하여 호출
 
 ```py
 from dotenv import load_dotenv
@@ -137,5 +140,62 @@ TEST_VALUE_1 = test
 TEST_VALUE_2 = 'test'
 TEST_VALUE_3 = 55
 ```
+
+## 주의점
+- `.env` 파일이 노출되게 되면 치명적
+  - **github** 및 클라우드 서비스 이용 시 주의 필요
+- 자주 사용하는 환경변수는 일일이 `.env` 파일을 작성하기보다 터미널에 등록
+
+## 해결방법
+- `.gitignore` 파일 작성
+
+# `.gitignore`
+> 버전관리에서 제외되어야 할 폴더 및 파일들을 규정하는 문서<br>
+> 불필요한 로그 및 시스템 파일, 민감 정보 등을 **Repository** 관리 대상에서 제외
+
+## 생성
+- `.gitignore` 파일 생성
+  - 최상위 위치 : **root directory** 에 생성
+  - 다른 위치에도 생성 가능 : 허용범위가 해당 디렉토리의 하위 디렉토리로 제한
+
+## 문법
+- **Globs(Global Patterns) [¶](https://code.visualstudio.com/docs/editor/glob-patterns)** 사용
+- `[파일명]` : 특정 파일 무시
+- `#` : 주석처리 - 인식되지 않음
+- `!` : 예외처리 - 해당 파일을 무시하지 않음
+- `*` : 전체
+  - `*.[확장자]` : 특정 확장자 파일 무시
+    - `*.env` : `.env` 파일 무시
+- `/` : 현재 디렉토리
+  - `[디렉토리]/` : 특정 디렉토리 내부 파일 무시
+  - `[디렉토리]/[파일]` : 특정 디렉토리의 특정 파일
+  - `[디렉토리]/**/[파일]` : 하위 디렉토리도 포함
+- `-` : 특정 이름으로 탐색
+  - `[특정이름]-*[파일]` : 특정이름으로 시작하는 파일 무시
+  - `docs-*.pdf` : **doc** 라는 이름으로 시작하는 모든 **pdf** 파일 무시
+- `{}` : 여러 파일 
+  - `/*.{확장자 1, 확장자 2}`
+- `[]` : 범위 설정 - **a-z, A-Z, 0-9** 등
+  - `/docs[1-3].pdf` : **docs1.pdf, docs2.pdf, docs3.pdf** 무시
+
+## 주의점
+- 이미 버전 관리중인 파일은 무시 불가
+  - **Repository** 에 **commit** 으로 올라간 파일
+  - **Staging Area** 에 올라간 파일
+
+## 해결방법
+- 파일 제거 또는 캐시 제거
+- 해당 파일 제거
+  - `git rm [파일명]`
+  - `git commit -m [메시지]`
+- 캐시 제거
+  - `git rm -r --cached .`
+  - `git add .` 
+  - `git commit -m`
+  - `git push origin [브렌치]`
+
+## [gitignore.io](https://www.toptal.com/developers/gitignore)
+- 옵션을 선택하여 원하는 `.gitignore` 파일 생성
+- `.py` 파일을 무시하고 싶은 경우 **python** 입력 후 생성
 
 [¶ Top](#환경-변수)
