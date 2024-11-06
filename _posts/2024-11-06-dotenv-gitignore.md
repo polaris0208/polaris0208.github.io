@@ -1,7 +1,7 @@
 ---
 layout: post
 title: .env & gitignore 
-subtitle: TIL Day 44
+subtitle: TIL Day 45
 cover-img: "/assets/img/background.png"
 thumbnail-img: ''
 share-img: ''
