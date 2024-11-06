@@ -11,8 +11,8 @@ author: polaris0208
 
 # .env & .gitignore
 > .env파일과 .gitignore를 이용한환경 변수 관리<br>
->[¶ .env](#fastapi--gpt-4o-chat-서비스)<br>
->[¶ .gitignore](#yolo-webcam-이용-객체-탐지)
+>[¶ .env](#env)<br>
+>[¶ .gitignore](#gitignore)
 
 # `.env`
 - 프로젝트에 필요한 환경변수를 모아 작성한 파일
