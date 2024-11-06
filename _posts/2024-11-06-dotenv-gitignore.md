@@ -10,7 +10,7 @@ author: polaris0208
 ---
 
 # .env & .gitignore
-> .env파일과 .gitignore를 이용한환경 변수 관리
+> .env파일과 .gitignore를 이용한환경 변수 관리<br>
 >[¶ .env](#fastapi--gpt-4o-chat-서비스)<br>
 >[¶ .gitignore](#yolo-webcam-이용-객체-탐지)
 
