@@ -8,6 +8,7 @@ share-img: ''
 tags: [TIL, LLM]
 author: polaris0208
 ---
+# INDEX
 
 >[¶ LLM](#llm)
 >- [¶ LLM](#llm-1)
@@ -93,7 +94,7 @@ author: polaris0208
 - **확장성**
 - **대화형 AI**
 
-[¶ Top](#llm)
+[¶ Top](#index)
 
 # Prompt 작성
 
@@ -213,4 +214,4 @@ author: polaris0208
 - 중요한 부분을 강조하기 위해 사용
 - `**강조**`등을 이용하여 중요한 부분 강조
 
-[¶ Top](#llm)
+[¶ Top](#index)
