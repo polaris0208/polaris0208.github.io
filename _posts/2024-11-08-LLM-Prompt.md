@@ -11,7 +11,7 @@ author: polaris0208
 # INDEX
 
 >[¶ LLM](#llm)
->- [¶ LLM](#llm-1)
+>- [¶ LLM 가본 개념](#llm-가본-개념)
 >- [¶ RAG](#rag)
 >- [¶ Vector DB](#vector-db)
 >- [¶ LangChain](#langchain)
@@ -26,7 +26,7 @@ author: polaris0208
 
 # LLM
 
-## LLM
+## LLM 가본 개념
 
 ### 개요
 - **Large Language Model** 
