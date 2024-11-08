@@ -238,7 +238,7 @@ author: polaris0208
 
 ## Prompt 실습
 
-### **OpneAI Playground** 사용
+### **OpenAI Playground** 사용
   - **gpt-4o**
   - **Temperature, Top P** = 1
 
@@ -341,3 +341,5 @@ author: polaris0208
 
 # 요약
 프롬프트 엔지니어링은 AI 모델이 원하는 응답을 생성하도록 프롬프트를 설계하고 최적화하는 기술로, 다양한 유형과 설계 요소를 통해 효과적으로 AI와 소통하고 모델의 잠재력을 최대한 활용할 수 있습니다.
+
+[¶ Top](#index)
