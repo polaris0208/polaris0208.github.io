@@ -43,7 +43,7 @@ author: polaris0208
   - `fix` : 버그 수정
   - `hotfix` : 치명적인 버그 수정
   - `docs` : 문서 추가, 수정
-  - `style` : 코드 formatting, 세미콜론(;) 누락, 코드 변경이 없는 경우
+  - `style` : 코드 구조 변경이 없는 수정, 포맷팅, 누락 등
   - `refactor` : 코드 구조 변경
   - `test` : 테스트 코드
   - `chore` : 자잘한 수정, 패키지 매니저 등
