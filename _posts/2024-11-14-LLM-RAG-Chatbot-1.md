@@ -150,8 +150,8 @@ print(f"\n[metadata]\n{docs[page].metadata}\n")
   - `{'source': 'documents/초거대 언어모델 연구 동향 (1).pdf', 'page': 0}`
 
 ### 확인된 문제
-
 > 기능 테스트 이후에 성능에 영향을 미친다 판단되면 전처리 진행 예정
+
 - 페이지 제목이 최상단으로 이동함 
 
 ```
