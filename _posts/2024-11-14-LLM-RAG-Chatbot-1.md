@@ -13,10 +13,10 @@ author: polaris0208
 
 # Index
 
-[¶ 개요](#개요)<br>
-[¶ 문서 로드 기능](#문서-로드-기능)<br>
-[¶ 문서 분할 기능](#문서-분할-기능)<br>
-[¶ 문서 임베딩 기능](#문서-임베딩-기능)
+>[¶ 개요](#개요)<br>
+>[¶ 문서 로드 기능](#문서-로드-기능)<br>
+>[¶ 문서 분할 기능](#문서-분할-기능)<br>
+>[¶ 문서 임베딩 기능](#문서-임베딩-기능)
 
 ## 개요
 
@@ -150,6 +150,7 @@ print(f"\n[metadata]\n{docs[page].metadata}\n")
   - `{'source': 'documents/초거대 언어모델 연구 동향 (1).pdf', 'page': 0}`
 
 ### 확인된 문제
+
 > 기능 테스트 이후에 성능에 영향을 미친다 판단되면 전처리 진행 예정
 - 페이지 제목이 최상단으로 이동함 
 
@@ -181,7 +182,7 @@ Model, LLM) 의 등장으로
 ><br>
 
 ## 문서 분할 기능
-> 테스트 결과 사용하는 데이터에서는 결과상 큰 차이가 없어 RecursiveCharacterTextSplitter 사용
+> 사용하는 데이터에서는 결과상 큰 차이가 없어 RecursiveCharacterTextSplitter 사용
 
 ### 사용 가능 패키지
 - **CharacterTextSplitter**
@@ -360,7 +361,7 @@ SEPERATOR = "\n"
 ><br>
 
 ## 문서 임베딩 기능
-> 60% 이상이면 상당한 고성능으로 평가되는 것으로 확인, 제작은 002 모델로 진행, 추후 3 모델로 테스트
+> 60% 이상이면 고성능으로 평가되는 것으로 확인, 제작은 002 모델로 진행, 추후 3 모델로 테스트
 
 ### 모델 정보 [¶](https://platform.openai.com/docs/guides/embeddings/)
 - **MTEB bench** [¶](https://github.com/embeddings-benchmark/mteb)
