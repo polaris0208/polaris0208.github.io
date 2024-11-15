@@ -169,8 +169,8 @@ print(response.content)
   - `'\n'.join()` 메서드 사용 시 문자 단위로 분할되어 `context` 로 활용되지 못함
 
 ### 해결
-`join` 메서드 제거 : 답변 생성
-page_content 결과 내부 `'\n'` 제거 : 향상된 답변 생성
+- `join` 메서드 제거 : 답변 생성
+- page_content 결과 내부 `'\n'` 제거 : 향상된 답변 생성
 
 ```
  \n 제거 전
