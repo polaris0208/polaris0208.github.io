@@ -170,7 +170,7 @@ print(response.content)
 
 ### 해결
 - `join` 메서드 제거 : 답변 생성
-- page_content 결과 내부 `'\n'` 제거 : 향상된 답변 생성
+- `page_content` 결과 내부 `'\n'` 제거 : 향상된 답변 생성
 
 ```
  \n 제거 전
