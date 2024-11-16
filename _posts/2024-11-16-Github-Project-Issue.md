@@ -9,7 +9,7 @@ tags: [TIL, Tools]
 author: polaris0208
 ---
 
-> **Issue**와 **Project**를 활용해 작업을 체계적으로 관리, 보드 형태로 시각화하여 진행도를 쉽게 파악 가능
+> **Issue**와 **Project**를 활용해 작업을 체계적으로 관리, 시각화하여 진행도를 쉽게 파악 가능
 
 ## Project
 - 작업의 진행도를 한눈에 파악
@@ -52,4 +52,4 @@ author: polaris0208
 ## 마무리
 - **GitHub Issues**와 **Projects**를 통해 현재 작업 중인 내용 관리 시작
 - 앞으로도 계속 사용하며 기능을 익히고자 함
-- ![LLM-RAG Chatbot 제작 진행 과정](https://drive.google.com/thumbnail?id=1mVUOUC2Y9zzAOfWabB2rV4yBqcZG3x1i)
+[![LLM-RAG Chatbot 제작 진행 과정](https://drive.google.com/thumbnail?id=1mVUOUC2Y9zzAOfWabB2rV4yBqcZG3x1i)](https://github.com/users/polaris0208/projects/1) 
