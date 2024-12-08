@@ -1,3 +1,14 @@
+---
+layout: post
+title: Test Framework
+subtitle: TIL Day 76
+cover-img: "/assets/img/background.png"
+thumbnail-img: ''
+share-img: ''
+tags: [TIL, Tools]
+author: polaris0208
+---
+
 # unittest와 pytest
 > **Python**에서 테스트를 작성하고 실행하는 두 가지 주요 테스트 프레임워크
 
