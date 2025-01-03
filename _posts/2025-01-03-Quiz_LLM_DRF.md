@@ -1,4 +1,15 @@
-# Quiz 생성 LLM 제작
+---
+layout: post
+title: Quiz 생성 LLM 제작
+subtitle: TIL Day 102
+cover-img: "/assets/img/background.png"
+thumbnail-img: ''
+share-img: ''
+tags: [TIL, LLM, Tools]
+author: polaris0208
+---
+
+
 > **LLM**을 이용하여 퀴즈를 생성 후 결과를 **DB**에 반영할 수 있도록 **DRF**의 모델로 정의
 
 ## LLM 모델 설계
