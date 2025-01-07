@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Quiz LLM 사용자 자료 입력
-subtitle: TIL Day 105
+subtitle: TIL Day 106
 cover-img: "/assets/img/background.png"
 thumbnail-img: ''
 share-img: ''
