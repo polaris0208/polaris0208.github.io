@@ -65,11 +65,10 @@ author: polaris0208
 ```py
 from pydantic import BaseModel
 
-class QuizResponse(BaseModel):
-    # id: int # DB에서 자동 생성
-    title: str
-    description: str
-    questions: list[Question]
+class QuestionChoice(BaseModel):
+    id: int
+    content: str
+    is_correct: bool
 
 class Question(BaseModel):
     id: int
@@ -77,10 +76,11 @@ class Question(BaseModel):
     answer_type: str
     choices: list[QuestionChoice]
 
-class QuestionChoice(BaseModel):
-    id: int
-    content: str
-    is_correct: bool
+class QuizResponse(BaseModel):
+    # id: int # DB에서 자동 생성
+    title: str
+    description: str
+    questions: list[Question]
 ```
 
 ### 퀴즈 생성
