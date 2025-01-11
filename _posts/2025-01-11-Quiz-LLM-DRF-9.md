@@ -34,7 +34,7 @@ author: polaris0208
   - `Response Format`에 데이터 구조를 정의
   - 작동 방식
     - 사용자가 정의한 구조를 모델에 문법으로 제공 : 문맥 자유 문법(**Context-Free Grammar**)
-    - 해당 문법에 해당하지 않는 토큰의 확률을 마스킹하여 0으로 만들어 사용자가 원하는 구조의 답변만 반환
+    - 해당 문법에 해당하지 않는 토큰을 마스킹하는 방식으로 확률을 0으로 만들어 사용자가 원하는 구조의 답변만 반환
 
 ### 활용
 - 데이터 추출 및 정형화 : 텍스트에서 필용한 데이터만 추출한 뒤에 원하는 구조로 정리
@@ -46,4 +46,115 @@ author: polaris0208
 - 예측가능한 형태의 출력을 얻을 수 있어 오류 가능성이 감소
 - 별도의 데이터 변환 과정이 불필요
 - 프롬프트에 예시 데이터 구조를 넣지 않아도 되기 때문에 추가 컨텍스트 공간 확보
-  - 프롬프트에는 추가적인 지시사항 추가 가능, 긴 컨텍스트로 인해 답변의 질적 수준이 하랃하는 것 방지
+  - 프롬프트에는 추가적인 지시사항 추가 가능, 긴 컨텍스트로 인해 답변의 질적 수준이 하락하는 것 방지
+
+## `Structured Outputs` 활용한 퀴즈 생성 **API** 테스트
+- `Pydantic`, `.chat.completions.parse` 사용
+  - `Pydantic` : `Python`의데이터 검증과 데이터 파싱을 위한 라이브러리
+  - `.chat.completions.parse`
+    - 정의된 `Pydantic` 모델이나 다른 구조화된 형식으로 자동 파싱된 응답을 반환
+    - 응답을 특정 형식으로 변환하려는 경우에 사용
+    - 바로 사용 가능한 구조화된 데이터 반환
+  - `.chat.completions.create`
+    - 일반적인 대화형 텍스트 응답을 생성, 결과는 문자열 형태로 반환
+    - 응답을 그대로 사용하거나 후속 작업을 통해 가공
+
+### 데이터 구조 정의
+- **API** 에서 사용하는 `Quiz` 모델의 구조와 동일하게 생성
+
+```py
+from pydantic import BaseModel
+
+class QuizResponse(BaseModel):
+    # id: int # DB에서 자동 생성
+    title: str
+    description: str
+    questions: list[Question]
+
+class Question(BaseModel):
+    id: int
+    content: str
+    answer_type: str
+    choices: list[QuestionChoice]
+
+class QuestionChoice(BaseModel):
+    id: int
+    content: str
+    is_correct: bool
+```
+
+### 퀴즈 생성
+- `response_format`에 데이터 구조 입력
+- `json.dumps` : 응답 결과는 모델형태, `json` 문자열로 변환
+- `indent=2` : 들여쓰기 설정
+
+```py
+import os
+import json
+import openai
+from openai import OpenAI
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+# 클라이언트 생성
+client = OpenAI(api_key=openai.api_key)
+
+# 응답 생성
+completion = client.beta.chat.completions.parse(
+    model="gpt-4o-mini-2024-07-18",
+    messages=[
+        {"role": "system", "content": "make quiz"},
+        {"role": "user", "content": "capital city quiz, 4-multi-choice, 10 question, hard difficulty"},
+    ],
+    response_format=QuizResponse,  # 응답 포맷 설정, 최상위 모델
+)
+
+# 응답 데이터
+quiz = completion.choices[0].message.parsed
+
+# JSON 형태로 추출
+quiz_json = json.dumps(quiz.model_dump(), indent=2)
+
+# 출력된 JSON 데이터
+print(quiz_json)
+``` 
+
+### 결과
+- 프롬프트에 예시 형태를 제시하지 않아도 의도한 형태의 결과를 일정하게 출력
+
+```py
+{
+  "id": 1,
+  "title": "Capital City Quiz",
+  "description": "Test your knowledge of the world's capitals with this challenging quiz!",
+  "questions": [
+    {
+      "id": 1,
+      "content": "What is the capital city of Bhutan?",
+      "answer_type": "multiple-choice",
+      "choices": [
+        {
+          "id": 1,
+          "content": "Thimphu",
+          "is_correct": true
+        },
+        {
+          "id": 2,
+          "content": "Kathmandu",
+          "is_correct": false
+        },
+        {
+          "id": 3,
+          "content": "Dhaka",
+          "is_correct": false
+        },
+        {
+          "id": 4,
+          "content": "New Delhi",
+          "is_correct": false
+        }
+      ]
+    },
+    ...
+  ]
+}
+```
