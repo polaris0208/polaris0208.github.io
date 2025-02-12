@@ -5,7 +5,7 @@ subtitle: TIL Day 141
 cover-img: "/assets/img/background.png"
 thumbnail-img: ''
 share-img: ''
-tags: [TIL, JS, Tools]
+tags: [TIL]
 author: polaris0208
 ---
 
