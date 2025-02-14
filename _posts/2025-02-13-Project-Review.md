@@ -1,3 +1,14 @@
+---
+layout: post
+title: 프로젝트 경험 정리
+subtitle: TIL Day 143
+cover-img: "/assets/img/background.png"
+thumbnail-img: ''
+share-img: ''
+tags: [TIL]
+author: polaris0208
+---
+
 ### 1. ReadRiddle (최종 프로젝트)
 
 - 프로젝트 소개 : AI 서비스 개발 학습자를 위한 퀴즈 위주 자기주도 학습 서비스
